@@ -4,6 +4,7 @@
   "description": "Ejercicio para poner en practica consultas a base de datos relacional con API REST",
   "main": "app.js",
   "scripts": {
+    "dev": "node --watch app.js",
     "test": "jest",
     "start" : "nodemon app.js"
   },
