@@ -1,6 +1,13 @@
-const { updateAuthor, deleteAuthor } = require("../models/authors.model");
-
 const queries = {
+  createTableAuthors: `
+    CREATE TABLE authors (
+    id_author serial NOT NULL PRIMARY KEY, 
+    name varchar(45) NOT NULL, 
+    surname varchar(45) NOT NULL, 
+    email varchar(100) NOT NULL UNIQUE,
+    image varchar(255));`,
+  dropTableAuthors: `
+      DROP TABLE IF EXISTS authors;`,
   getAllAuthors: `SELECT * FROM authors`,
   getAuthorByEmail: `
     SELECT * FROM authors
