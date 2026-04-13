@@ -2,6 +2,7 @@ const entry = require("../models/entries.model");
 const author = require("../models/authors.model");
 
 // GET http://localhost:3000/api/entries
+// GET http://localhost:3000/api/entries/?email=ejemplo@gmail.com
 const getEntries = async (req, res) => {
   let entries; //Será lo que se devuelva más adelante según qué caso
 

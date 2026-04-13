@@ -1,6 +1,7 @@
 const authorsmodel = require("../models/authors.model");
 
 // GET http://localhost:3000/api/authors
+// GET http://localhost:3000/api/authors/?author=ejemplo
 const getAuthors = async (req, res) => {
   let authors; //Será lo que se devuelva más adelante según qué caso
 

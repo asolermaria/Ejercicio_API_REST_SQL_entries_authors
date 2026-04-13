@@ -118,7 +118,6 @@ const idExists = async (id) => {
 };
 
 
-
 const authors = {
   getAllAuthors,
   getAuthorByEmail,

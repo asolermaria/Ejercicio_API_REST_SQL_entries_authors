@@ -12,13 +12,13 @@ const queries = {
     UPDATE authors
     SET name = $1, surname = $2, email= $3, image = $4
     WHERE id_author=$5`,
+  deleteAuthor: `
+    DELETE FROM authors
+    WHERE id_author = $1`,
   emailExists: `
     SELECT * FROM authors
     WHERE email = $1
     LIMIT 1`,
-  deleteAuthor: `
-    DELETE FROM authors
-    WHERE id_author = $1`,
   idExists: `
     SELECT * FROM authors
     WHERE id_author = $1
