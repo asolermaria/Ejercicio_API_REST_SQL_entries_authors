@@ -51,21 +51,6 @@ const updateEntry = async (entry) => {
     return result
 }
 
-const titleExists = async (title) => {
-  let client, result;
-  try {
-    client = await pool.connect(); // Abre conexión con la BBDD
-    const data = await client.query(queries.titleExists, [title]); //email sería equivalente a $1 en la query
-    result = data.rows; // Resultado de la query
-  } catch (err) {
-    console.log(err);
-    throw err;
-  } finally {
-    client.release();
-  }
-  return result;
-};
-
 // DELETE
 const deleteEntry = async (entry) => {
     const { title } = entry;
@@ -82,6 +67,22 @@ const deleteEntry = async (entry) => {
     }
     return result
 }
+
+// Validacion si existe titulo en la tabla
+const titleExists = async (title) => {
+  let client, result;
+  try {
+    client = await pool.connect(); // Abre conexión con la BBDD
+    const data = await client.query(queries.titleExists, [title]); //email sería equivalente a $1 en la query
+    result = data.rows; // Resultado de la query
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } finally {
+    client.release();
+  }
+  return result;
+};
 
 const entries = {
   getAllEntries,

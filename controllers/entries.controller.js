@@ -76,12 +76,13 @@ const updateEntry = async (req, res) => {
       error: "El email no existe",
     });
   }
-
+  
   try {
     const response = await entry.updateEntry(editedEntry);
     res.status(200).json({
       items_edited: response,
       data: editedEntry,
+      message: `Se ha modificado la entry: ${title}`
     });
   } catch (error) {
     res.status(400).json({
@@ -92,6 +93,10 @@ const updateEntry = async (req, res) => {
   }
 };
 
+// DELETE http://localhost:3000/api/entries
+// let deleteEntry = {
+//     title : "Se acabaron las magdalenas"
+//}
 const deleteEntry = async (req, res) => {
   const deleteEntry = req.body; // {title,content,email,category}
   const { title } = deleteEntry; //Destructuring dl objeto pasado por el body};

@@ -9,9 +9,11 @@ app.use(express.json());
 
 //Importar rutas (router)
 const entriesRoutes = require("./routes/entries.routes")
+const authorsRoutes = require("./routes/authors.routes")
 
 //El primer parámetro -> prefijo
 app.use('/api/entries',entriesRoutes);
+app.use('/api/authors',authorsRoutes);
 
 //http://localhost:3000/
 app.listen(port, () => {
