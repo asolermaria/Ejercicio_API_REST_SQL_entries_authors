@@ -10,6 +10,10 @@ app.use(express.json());
 
 app.use(morgan('dev'));
 
+app.get('/', (req, res) => {
+  res.json({ message: 'API funcionando en Render🚀' });
+});
+
 //Importar rutas (router)
 const entriesRoutes = require("./routes/entries.routes")
 const authorsRoutes = require("./routes/authors.routes")
