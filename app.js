@@ -1,5 +1,10 @@
 const express = require('express'); // Importando express
 const morgan = require('morgan');
+
+//Importar rutas (router)
+const entriesRoutes = require("./routes/entries.routes")
+const authorsRoutes = require("./routes/authors.routes")
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -13,10 +18,6 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res.json({ message: 'API funcionando en Render🚀' });
 });
-
-//Importar rutas (router)
-const entriesRoutes = require("./routes/entries.routes")
-const authorsRoutes = require("./routes/authors.routes")
 
 //El primer parámetro -> prefijo
 app.use('/api/entries',entriesRoutes);
